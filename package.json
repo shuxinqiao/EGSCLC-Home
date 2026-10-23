@@ -1,0 +1,8 @@
+{
+  "name": "good-shepherd-church",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node scripts/serve.mjs", "build": "node scripts/build.mjs", "sync:sermons": "node scripts/sync-sermons.mjs", "check": "node --check app.js && node --check content.js && node scripts/check.mjs && node --test scripts/youtube-parser.test.mjs" },
+  "engines": { "node": ">=20" }
+}
