@@ -2,3 +2,17 @@ dist/
 node_modules/
 *.log
 previews/
+.env
+.env.*
+!.env.example
+.dev.vars*
+.wrangler/
+*.tmp
+*.bak
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+coverage/

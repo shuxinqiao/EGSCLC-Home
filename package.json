@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "scripts": { "dev": "node scripts/serve.mjs", "build": "node scripts/build.mjs", "sync:sermons": "node scripts/sync-sermons.mjs", "check": "node --check app.js && node --check content.js && node scripts/check.mjs && node --test scripts/youtube-parser.test.mjs" },
-  "engines": { "node": ">=20" }
+  "description": "Static multilingual website for Edmonton Good Shepherd Chinese Lutheran Church",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check app.js && node scripts/check.mjs && node --test scripts/youtube-parser.test.mjs",
+    "check:dist": "node scripts/check-dist.mjs",
+    "audit:public": "node scripts/audit-public.mjs",
+    "validate": "npm run check && npm run build && npm run check:dist && npm run audit:public",
+    "sync:sermons": "node scripts/sync-sermons.mjs"
+  },
+  "engines": { "node": ">=22" }
 }

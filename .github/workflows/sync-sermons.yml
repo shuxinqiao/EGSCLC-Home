@@ -1,32 +1,48 @@
 name: Update sermons
 on:
   schedule:
-    - cron: '23 2,14 * * *'
+    - cron: '0 3 * * 5' # Friday 03:00 UTC / Friday 11:00 Asia/Singapore
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: update-sermons
   cancel-in-progress: false
 jobs:
   sync:
+    if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-      - run: npm run sync:sermons
-      - run: npm run check
+          node-version-file: .node-version
+      - name: Fetch public YouTube sermons
+        run: npm run sync:sermons
+      - name: Validate before committing
+        run: npm run validate
       - name: Commit changed sermon data
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         shell: bash
         run: |
-          if ! git diff --quiet -- sermon-data.js; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add sermon-data.js
-            git commit -m "Update church sermon list"
-            git push origin HEAD:main
+          if git diff --quiet -- sermon-data.js; then
+            echo "No sermon changes; no commit or deployment needed." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- sermon-data.js
+          git commit -m "Update church sermon list"
+          # Ordinary concurrent edits can rebase; conflicts fail without a force push.
+          git fetch origin "$DEFAULT_BRANCH"
+          git rebase "origin/$DEFAULT_BRANCH"
+          npm run validate
+          git push origin "HEAD:$DEFAULT_BRANCH"
+          echo "Updated sermon-data.js. Check Cloudflare Pages for this commit." >> "$GITHUB_STEP_SUMMARY"
