@@ -3,6 +3,32 @@
 // Existing editorial translations are retained; new titles use the original channel wording.
 export const sermons = [
   {
+    "id": "Agb8ybwiYT8",
+    "date": "2026-10-25",
+    "title": {
+      "zh-Hans": "在萬聖節發光",
+      "zh-Hant": "在萬聖節發光",
+      "en": "在萬聖節發光"
+    },
+    "scripture": "",
+    "sourceTitle": "愛城信義會善牧堂 2026年10月25日 主日崇拜 在萬聖節發光",
+    "url": "https://www.youtube.com/watch?v=Agb8ybwiYT8",
+    "thumbnail": "https://i.ytimg.com/vi/Agb8ybwiYT8/hqdefault.jpg"
+  },
+  {
+    "id": "tErrUVlArMA",
+    "date": "2026-10-25",
+    "title": {
+      "zh-Hans": "信心來自上帝說話算話",
+      "zh-Hant": "信心來自上帝說話算話",
+      "en": "信心來自上帝說話算話"
+    },
+    "scripture": "",
+    "sourceTitle": "愛城信義會善牧堂 2026年10月25日 主日崇拜 信心來自上帝說話算話",
+    "url": "https://www.youtube.com/watch?v=tErrUVlArMA",
+    "thumbnail": "https://i.ytimg.com/vi/tErrUVlArMA/hqdefault.jpg"
+  },
+  {
     "id": "-EDsYMQnfWE",
     "date": "2026-10-11",
     "title": {
