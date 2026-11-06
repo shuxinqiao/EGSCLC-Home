@@ -3,6 +3,19 @@
 // Existing editorial translations are retained; new titles use the original channel wording.
 export const sermons = [
   {
+    "id": "y62YMuZcAec",
+    "date": "2026-11-01",
+    "title": {
+      "zh-Hans": "王權背後的神權",
+      "zh-Hant": "王權背後的神權",
+      "en": "王權背後的神權"
+    },
+    "scripture": "",
+    "sourceTitle": "愛城信義會善牧堂 2026年11月1日 主日崇拜 王權背後的神權",
+    "url": "https://www.youtube.com/watch?v=y62YMuZcAec",
+    "thumbnail": "https://i.ytimg.com/vi/y62YMuZcAec/hqdefault.jpg"
+  },
+  {
     "id": "Agb8ybwiYT8",
     "date": "2026-10-25",
     "title": {
