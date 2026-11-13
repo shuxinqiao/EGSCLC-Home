@@ -3,6 +3,19 @@
 // Existing editorial translations are retained; new titles use the original channel wording.
 export const sermons = [
   {
+    "id": "eO5ZeEeyD1k",
+    "date": "2026-11-08",
+    "title": {
+      "zh-Hans": "對你來說 基督信仰是什麼",
+      "zh-Hant": "對你來說 基督信仰是什麼",
+      "en": "對你來說 基督信仰是什麼"
+    },
+    "scripture": "",
+    "sourceTitle": "愛城信義會善牧堂 2026年11月8日 中英聖餐主日崇拜 對你來說 基督信仰是什麼",
+    "url": "https://www.youtube.com/watch?v=eO5ZeEeyD1k",
+    "thumbnail": "https://i.ytimg.com/vi/eO5ZeEeyD1k/hqdefault.jpg"
+  },
+  {
     "id": "y62YMuZcAec",
     "date": "2026-11-01",
     "title": {
